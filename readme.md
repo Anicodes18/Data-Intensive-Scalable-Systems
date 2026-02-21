@@ -1,44 +1,41 @@
- ---- The two required .json data files have been provided but the code to retrieve data using an API call is present in the Jupyter notebook. Run the jupyter notebook on Google Colab for running smoothly.
+# Carbon and GHG Emissions and global factors affecting them
 
----- Note ----
+## 📌 Problem Statement
+Global carbon (CO₂) and greenhouse gas (GHG) emissions continue to rise, contributing significantly to climate change. This project investigates:
+Which countries contribute most to global CO₂ and GHG emissions?
+What are the major factors driving these emissions?
+How do GDP and population correlate with emission levels?
+What role does the aviation industry play in overall emissions?
+Which flight types and aviation activities contribute most?
 
-PySpark was run on Google Colab and hence, some parts of the code have been modified as per the setup required specifically for google colab. Hence, if the code file is run on google colab itself, the entire process of retrieving the data via API, uploading it to blob storage, retrieving for processing in PySpark, and finally, uploading to MongoDB runs smoothly inside one notebook.
+## 📂 Dataset
+- Source: Our World in Data (OWID) and Organisation for Economic Co-operation and Development (OECD)
+- Size: 60k+ records
+- Key features: country, carbon and ghg emissions from sources like cement production, methane emissions per capita, 
+emissions due to land-use change, etc
 
+## 🔍 Approach
+- Pulling the data using an API call
+- Processing and structuring the data using PySpark
+- Data cleaning
+- Exploratory data analysis
+- Creating a Power BI dashboard to draw insights
 
+## 📊 Key Insights
+- Even though the overall CO2 emissions from cement industry are low in comparison to other sectors, they have increased significantly over time which is obviously because of increased infrastructure, road developments and urbanization. 
+- Land use change contributes significantly to overall CO2 emissions every year and hence, urbanization needs to be properly planned and avoid excessive conversion of forest area to agricultural or other such type of land uses.
+-  “High-income countries” i.e. the countries with a high Gross National Income(GNI) per Capita contribute to more than 50% of the overall CO2 emissions.
+-  The contribution to overall emissions from the aviation industry has always been significant from “Passenger” flights than the “Cargo or Freight” flights and in recent years, the emissions from “Cargo” flights have also increased significantly.
 
-Requirements:
+## 🛠 Tech Used
+Google Cloud Storage (Blob Storage) | Python | PySpark | MongoDB | Power BI
 
-A "gcs\_key.json" is required to connect to the blob storage and it is required to be uploaded to colab for connecting to the Google Cloud Storage. Hence, after running the cell for it, in the output section of that cell, an option to upload the "gcs\_key" pops-up. After uploading that key the entire process runs smoothly. So, ensure to download the key for your GCS blob storage and upload it to colab for connecting.
+## 🚀 Business Impact
+This analysis can support:
+📊 ESG and sustainability analysts in evaluating the relationship between economic growth and environmental impact.
+✈️ Aviation industry stakeholders in understanding which flight types and operational activities contribute most to emissions.
+💰 Governments and economic planners in assessing whether GDP growth correlates with carbon intensity.
+📈 Data-driven climate strategy development through scalable processing of large environmental datasets.
+🌍 Policy makers in identifying high-emission countries and sectors to design targeted climate regulations.
 
-
-
-----------------------------------------------------
-
-from google.colab import files
-
-uploaded = files.upload()  # Uploading the `gcs\_key.json` required for connecting to google cloud storage
-
-----------------------------------------------------
-
-
-
-Given above are the code lines , under which the option to upload the gcs\_key will pop-up.
-
-
-
-Apart from this, once the gcs\_key is uploaded all the other cells execute smoothly and all the required **JAVA-11 and HADOOP versions have been setup as per colab's PySpark 3.4.1 version.**
-
-
-
-Id and password will be required for connecting to **"MongoDB"** database.
-
-id - Your_userid
-
-password - Your_password
-
-full uri link - mongodb uri for connecting to the database
-
-
-
-The **"Power BI"** file also has been added. **Note: For the visualizations to be visible a connection with MongoDB database will have to be established.**
-
+By combining economic, demographic, and sector-specific data, this project demonstrates how data analytics can inform climate policy and sustainability initiatives.
